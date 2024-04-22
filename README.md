@@ -1,16 +1,53 @@
-# todo_app
+# 📝 1. 기획단계
 
-A new Flutter project.
+## ⚙️ 목표설정
 
-## Getting Started
+- **프로젝트 목표**
+    1. **편리한 음성인식 기능 제공 :** 트렌드에 맞춘 편리하게 음성인식을 통해 손을 사용하지 않고 일정을 쉽게 추가할 수 있다. → **변경)** 터치 한번으로 음성이용
+    2. **시간 관리 및 알림 기능 :** 사용자가 맞춘 일정 시간에 맞춰 알림을 제공한다.
+    그로 인해 일상생활을 더 효율적이게 계획하고 놓치지 않고 일정을 관리할 수 있다.
+    3. **다중 플랫폼 지원 :** 크로스 플랫폼을 이용하여 다양한 플랫폼에서 이용할 수 있도록 지원하여 다양한 장치로 효과적으로 일정을 관리할 수 있다.
+- **타겟 사용자**
+    1. **여러번의 터치가 귀찮은 사용자**
+    2. **일정이 많은 직장인**
+    3. **학업 스케줄이 필요한 학생**
+- **기대 결과**
+    1. **시간 절약**
+    2. **편의성**
 
-This project is a starting point for a Flutter application.
+## 👥 사용자 분석
 
-A few resources to get you started if this is your first Flutter project:
+- **주요 기능**
+    1. **음성인식을 통해 쉽게 일정을 등록하는 기능을 제공.**
+    2. **일정 관리 쉽게 볼 수 있는 기능 제공**.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📄 기능 명세서
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **개발 단계**
+
+| 구분 | 주 기능 | 상세기능 | 설명 | 가능여부 | 비고 |
+| --- | --- | --- | --- | --- | --- |
+| 1 사용자 상호작용 | 1.1 음성 명령을 자연어 해석처리 | 1.1.1 사용자가 버튼 한번으로 음성을 이용해 일정을 추가할 수 있음 | 음성인식을 이용 |  |  |
+| 2 시간 관리 | 2.1 알림설정 | 2.1.1 사용자가 알림시간을 지정할 수 있음 | 알림시간 지정 |  |  |
+|  |  |  |  |  |  |
+| 3 사용자 편의성 | 3.1 캘린더 뷰 | 3.1.1 캘린더 뷰를 제공하여 사용자의 편리 제공 | 캘린더 뷰 제공 |  |  |
+|  | 3.2 캘린더 일정 구분 | 3.2.1 색상으로 구분하여 표시 | 일정 색상 구분 |  |  |
+
+## 🎞️ 프로토타이핑
+
+- 서비스 흐름도
+<img src="https://github.com/alscks6521/flutter-voice-recognition-calendar/assets/112923685/54967160-06b8-420c-b259-3cba61bc9b57" width="50%">
+
+## 화면  
+<img width="30%" alt="image" src="https://github.com/alscks6521/flutter-voice-recognition-calendar/assets/112923685/1ceb2fea-8f21-4517-b7a9-166cae89d8fb">
+
+
+## 예상 외 문제점
+
+1. **(실제 디바이스와 시뮬레이터)의 동시 디버그 중 패키지에서 지원하는 기능의 문제점**
+→ 실제 디바이스에서는 배터리 효율 문제로  5초 이내에 음성감지가 강제 종료됨 (이로 인해 음성버튼 생성)
+→ 시뮬레이터에서는 음성을 지속적으로 받는게 가능하지만 한문장처리(finalResult)의 인식 장애.
+    
+    ---
+    
+    이러한 문제들로 앱에서 음성대기가 아닌, 음성 버튼 생성
