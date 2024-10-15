@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class SpeechService {
@@ -8,11 +9,11 @@ class SpeechService {
   Future<bool> initialize() async {
     isInitialized = await _speech.initialize(
       onError: (val) {
-        print("Speech.initalize Error: $val");
+        debugPrint("Speech.initalize Error: $val");
         isInitialized = false;
       },
       onStatus: (val) {
-        print('Speech.initalize Status: $val');
+        debugPrint('Speech.initalize Status: $val');
         isInitialized = true;
       },
     );
@@ -21,7 +22,7 @@ class SpeechService {
   }
 
   Future<String> startListening() async {
-    print("음성지원");
+    debugPrint("음성지원");
     Completer<String> comple = Completer<String>();
     try {
       _speech.listen(
@@ -29,7 +30,7 @@ class SpeechService {
         onResult: (result) {
           if (result.finalResult) {
             final recogn = result.recognizedWords.toLowerCase();
-            print("voice input : $recogn");
+            debugPrint("voice input : $recogn");
             if (!comple.isCompleted) {
               comple.complete(recogn);
             }
@@ -40,7 +41,7 @@ class SpeechService {
       if (!comple.isCompleted) {
         comple.completeError(e);
       }
-      print("Listening error: $e");
+      debugPrint("Listening error: $e");
     }
     return comple.future;
   }

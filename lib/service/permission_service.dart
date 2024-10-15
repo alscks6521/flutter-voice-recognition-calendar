@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionService {
@@ -7,7 +8,7 @@ class PermissionService {
     if (!status.isGranted) {
       final result = await Permission.microphone.request();
       if (result != PermissionStatus.granted) {
-        print("마이크 권한이 거부되었습니다.");
+        debugPrint("마이크 권한이 거부되었습니다.");
 
         return false;
       }
